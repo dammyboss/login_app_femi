@@ -5,13 +5,8 @@ As requested, this is the login app to demonstrate and test yourr project implem
 git clone https://github.com/dammyboss/login_app_femi
 
 sudo apt-get update
-
 sudo apt-get install nodejs
-
-node -v
-
-cd login_app_femi
-
+node -vcd login_app_femi
 node server.js
 
 
