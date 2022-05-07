@@ -82,6 +82,6 @@ stages:
                 azureSubscription: 'may-6-2022'
                 appType: 'webAppLinux'
                 WebAppName: 'local-library-app-1c'
-                packageForLinux: '$(System.DefaultWorkingDirectory)/drop/node.zip'
+                packageForLinux: '$(System.DefaultWorkingDirectory)/*/*.zip'
                 RuntimeStack: 'NODE|14-lts'
                 StartupCommand: 'node server.js'
