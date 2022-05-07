@@ -66,12 +66,21 @@ stages:
       runOnce:
         deploy:
           steps:
+          # - task: AzureWebApp@1
+          #   displayName: 'Azure Web App Deploy: local-library-app-1c'
+          #   inputs:
+          #     azureSubscription: $(azureSubscription)
+          #     appType: webAppLinux
+          #     appName: $(webAppName)
+          #     runtimeStack: 'NODE|14'
+          #     package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
+          #     startUpCommand: 'npm run start'
+
           - task: AzureWebApp@1
-            displayName: 'Azure Web App Deploy: local-library-app-1c'
             inputs:
-              azureSubscription: $(azureSubscription)
-              appType: webAppLinux
-              appName: $(webAppName)
-              runtimeStack: 'NODE|14'
-              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
-              startUpCommand: 'npm run start'
+              azureSubscription: 'may-6-2022'
+              appType: 'webAppLinux'
+              appName: 'local-library-app'
+              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              runtimeStack: 'NODE|14-lts'
+              startUpCommand: 'node server.js'
